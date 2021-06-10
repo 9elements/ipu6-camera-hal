@@ -358,13 +358,8 @@ endif() #SUPPORT_LIVE_TUNING
 # Install configure files
 # By default ipu4 is used
 if("${IPU_VER}" STREQUAL "ipu6")
-    if("${PRODUCTION_NAME}" STREQUAL "Andrews")
-        message("Install Andrews configure files")
-        install(DIRECTORY config/linux/ubuntu/andrews/ DESTINATION share/defaults/etc/camera)
-    else()
-        message("Install IPU6 configure files")
-        install(DIRECTORY config/linux/ipu6/ DESTINATION share/defaults/etc/camera)
-    endif()
+    message("Install IPU6 configure files")
+    install(DIRECTORY config/linux/ipu6/ DESTINATION share/defaults/etc/camera)
 else()
     message("Install IPU4 configure files")
     install(DIRECTORY config/linux/ipu4/ DESTINATION share/defaults/etc/camera)
