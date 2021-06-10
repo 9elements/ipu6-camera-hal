@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 	limitations under the License.
 	-->
 <graph_settings version="IPU6_20200430.0.1.0.243.1.2020.4.30.19.25.49">
-<sensor_modes sensor_name="X12" csi_port="0" metadata="0" interlaced="0" bayer_order="GRBG">
+<sensor_modes sensor_name="OV8856" csi_port="0" metadata="0" interlaced="0" bayer_order="GRBG">
     <available_bit_per_pixel>
         <bpp value="10"/>
     </available_bit_per_pixel>
