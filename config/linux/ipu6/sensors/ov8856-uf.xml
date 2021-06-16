@@ -16,16 +16,14 @@
 
 <CameraSettings>
     <Sensor name="ov8856-uf" description="OV8856 sensor.">
-        <MediaCtlConfig id="0" ConfigMode="AUTO" outputWidth="3296" outputHeight="2464" format="V4L2_PIX_FMT_SGRBG10"><!-- RAW10 BE capture -->
+        <MediaCtlConfig id="0" ConfigMode="AUTO" outputWidth="3280" outputHeight="2468" format="V4L2_PIX_FMT_SGRBG10"><!-- RAW10 BE capture -->
             <format name="ov8856 $I2CBUS" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
             <format name="Intel IPU6 CSI-2 $CSI_PORT" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <format name="Intel IPU6 CSI2 BE SOC 0" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <format name="Intel IPU6 CSI2 BE SOC 0" pad="1" width="3280" height="2468" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <selection name="Intel IPU6 CSI2 BE SOC 0" pad="1" target="V4L2_SEL_TGT_CROP" left="0" top="0" width="3280" height="2468"/>
 
             <link srcName="ov8856 $I2CBUS" srcPad="0" sinkName="Intel IPU6 CSI-2 $CSI_PORT" sinkPad="0" enable="true"/>
-
-            <format name="Intel IPU6 CSI2 BE SOC 0" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
-            <format name="Intel IPU6 CSI2 BE SOC 0" pad="1" width="3296" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
-            <selection name="Intel IPU6 CSI2 BE SOC 0" pad="1" target="V4L2_SEL_TGT_CROP" left="0" top="0" width="3296" height="2464"/>
-
             <link srcName="Intel IPU6 CSI-2 $CSI_PORT" srcPad="1" sinkName="Intel IPU6 CSI2 BE SOC 0" sinkPad="0" enable="true"/>
             <link srcName="Intel IPU6 CSI2 BE SOC 0" srcPad="1" sinkName="Intel IPU6 BE SOC capture 0" sinkPad="0" enable="true"/>
 
@@ -36,8 +34,7 @@
 
         <StaticMetadata>
             <!-- format,widthxheight,field(none:0,alternate:7),mcId -->
-            <supportedStreamConfig value="V4L2_PIX_FMT_YUYV,1920x1080,0,0,
-                                          V4L2_PIX_FMT_YUYV,1280x960,0,0,
+            <supportedStreamConfig value="V4L2_PIX_FMT_YUYV,1280x960,0,0,
                                           V4L2_PIX_FMT_YUYV,1280x720,0,0,
                                           V4L2_PIX_FMT_YUYV,640x640,0,0,
                                           V4L2_PIX_FMT_YUYV,640x480,0,0,
@@ -74,13 +71,13 @@
             <statistics.info.maxFaceCount value="10"/>
 
             <sensor.orientation value="0"/>
-            <sensor.info.sensitivityRange value="100,2468"/>
+            <sensor.info.sensitivityRange value="100,800"/>
             <!-- microsecond -->
             <sensor.info.exposureTimeRange value="100,100000"/>  <!-- align with supportedAeExposureTimeRange -->
 
             <!-- Blow static metadata are for camera HAL V3 -->
-            <sensor.info.activeArraySize value="0,0,3280,2468"/> <!-- 3280,2468 -->
-            <sensor.info.pixelArraySize value="3280x2468"/>
+            <sensor.info.activeArraySize value="0,0,3280,2464"/> <!-- 3280,2464 -->
+            <sensor.info.pixelArraySize value="3280x2464"/>
             <!-- 4096x1.12um 3072x1.12um -->
             <sensor.info.physicalSize value="3.69,2.77"/>
             <!-- 0: off, 1: solid color, 2: color bars  -->
@@ -115,7 +112,7 @@
             <!-- input fmt, output fmt number, output fmts; fmt: YCbCr_420_888:0x23 (35), IMPLEMENTATION_DEFINED:0x22 (34), Blob:0x21 (33) -->
             <scaler.availableInputOutputFormatsMap value="35,2,33,35,34,2,33,35"/>
             <!-- [width, height, raw-out-size] -->
-            <sensor.opaqueRawSize value="3280,2468,100"/>
+            <sensor.opaqueRawSize value="3280,2464,100"/>
             <!-- available stream configurations: format: IMPLEMENTATION_DEFINED(34)|YCbCr_420_888:0x23(35)|BLOB(33), widthxheight, type: output(0)|input(1) -->
             <scaler.availableStreamConfigurations value="
                 33,1280x720,0,
