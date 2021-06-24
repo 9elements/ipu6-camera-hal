@@ -17,9 +17,9 @@
 <CameraSettings>
     <Sensor name="ov8856-uf" description="OV8856 sensor.">
         <MediaCtlConfig id="0" ConfigMode="AUTO" outputWidth="3280" outputHeight="2468" format="V4L2_PIX_FMT_SGRBG10"><!-- RAW10 BE capture -->
-            <format name="ov8856 $I2CBUS" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
-            <format name="Intel IPU6 CSI-2 $CSI_PORT" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
-            <format name="Intel IPU6 CSI2 BE SOC 0" pad="0" width="3280" height="2464" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <format name="ov8856 $I2CBUS" pad="0" width="3280" height="2468" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <format name="Intel IPU6 CSI-2 $CSI_PORT" pad="0" width="3280" height="2468" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
+            <format name="Intel IPU6 CSI2 BE SOC 0" pad="0" width="3280" height="2468" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
             <format name="Intel IPU6 CSI2 BE SOC 0" pad="1" width="3280" height="2468" format="V4L2_MBUS_FMT_SGRBG10_1X10"/>
             <selection name="Intel IPU6 CSI2 BE SOC 0" pad="1" target="V4L2_SEL_TGT_CROP" left="0" top="0" width="3280" height="2468"/>
 
@@ -34,11 +34,9 @@
 
         <StaticMetadata>
             <!-- format,widthxheight,field(none:0,alternate:7),mcId -->
-            <supportedStreamConfig value="V4L2_PIX_FMT_YUYV,1280x960,0,0,
-                                          V4L2_PIX_FMT_YUYV,1280x720,0,0,
-                                          V4L2_PIX_FMT_YUYV,640x640,0,0,
-                                          V4L2_PIX_FMT_YUYV,640x480,0,0,
-                                          V4L2_PIX_FMT_YUYV,640x360,0,0"/>
+            <supportedStreamConfig value="V4L2_PIX_FMT_NV12,1280x960,0,0,
+                                          V4L2_PIX_FMT_NV12,640x640,0,0,
+                                          V4L2_PIX_FMT_NV12,640x480,0,0"/>
 
             <supportedFeatures value="MANUAL_EXPOSURE,
                                       MANUAL_WHITE_BALANCE,
@@ -115,21 +113,21 @@
             <sensor.opaqueRawSize value="3280,2464,100"/>
             <!-- available stream configurations: format: IMPLEMENTATION_DEFINED(34)|YCbCr_420_888:0x23(35)|BLOB(33), widthxheight, type: output(0)|input(1) -->
             <scaler.availableStreamConfigurations value="
-                33,1280x720,0,
-                33,640x480,0,
-                33,640x360,0" />
+                33,1280x960,0,
+                33,640x640,0,
+                33,640x480,0" />
             <!-- minimum frame duration: format: IMPLEMENTATION_DEFINED(34)|YCbCr_420_888:0x23(35)|BLOB(33), widthxheight, duration:(ns) -->
             <scaler.availableMinFrameDurations value="
-                33,1280x720,33333333,
+                33,1280x960,33333333,
                 33,640x480,33333333,
                 33,640x360,33333333" />
             <!-- maximum stall duration: format: IMPLEMENTATION_DEFINED(34)|YCbCr_420_888:0x23(35)|BLOB(33), widthxheight, duration:(ns) -->
             <scaler.availableStallDurations value="
-                33,1280x720,33333333,
+                33,1280x960,33333333,
                 33,640x480,33333333,
                 33,640x360,33333333" />
 
-            <jpeg.maxSize value="1382400"/>  <!-- 1280*720*1.5 -->
+            <jpeg.maxSize value="1843200"/>  <!-- 1280*960*1.5 -->
             <jpeg.availableThumbnailSizes value="0,0,320,180,320,240"/> <!-- INCREASING ORDER -->
 
             <!-- 0:off, 1:fast, 2:high_quality, 3:zero_shutter_lag -->
@@ -156,12 +154,12 @@
         <!-- <TuningMode, cmc tag, aiq tag, isp tag, others tag>  -->
         <lardTags value="VIDEO,DFLT,DFLT,DFLT,DFLT"/>
 
-        <supportedISysSizes value="3296x2468"/> <!-- ascending order request -->
+        <supportedISysSizes value="3280x2464"/> <!-- ascending order request -->
         <supportedISysFormat value="V4L2_PIX_FMT_SGRBG10"/>
         <enableAIQ value="true"/>
         <iSysRawFormat value="V4L2_PIX_FMT_SGRBG10"/>
         <maxRawDataNum value="32"/>
-        <pSysFormat value="V4L2_PIX_FMT_YUYV"/>
+        <pSysFormat value="V4L2_PIX_FMT_NV12"/>
         <initialSkipFrame value="0"/>
         <exposureLag value="2"/>
         <gainLag value="2"/>
@@ -175,7 +173,7 @@
         <testPatternMap value="Off,0,ColorBars,2"/>
         <enableAiqd value = "true"/>
         <useCrlModule value = "false"/>
-        <pslOutputMapForRotation value="1280x720@1280x720,640x480@640x480,320x240@640x480"/>
+        <pslOutputMapForRotation value="1280x960@1280x960,640x480@640x480,320x240@640x480"/>
 
         <maxRequestsInflight value="5"/>
     </Sensor>
