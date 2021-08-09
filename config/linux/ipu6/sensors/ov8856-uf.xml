@@ -49,12 +49,14 @@
 
         <StaticMetadata>
             <!-- format,widthxheight,field(none:0,alternate:7),mcId -->
-            <supportedStreamConfig value="V4L2_PIX_FMT_NV12,1920x1080,0,0,
-                                          V4L2_PIX_FMT_NV12,1280x960,0,1,
-                                          V4L2_PIX_FMT_NV12,1280x720,0,0,
-                                          V4L2_PIX_FMT_NV12,640x640,0,1,
-                                          V4L2_PIX_FMT_NV12,640x480,0,1,
-                                          V4L2_PIX_FMT_NV12,640x360,0,0"/>
+            <supportedStreamConfig value="V4L2_PIX_FMT_YUYV,1920x1080,0,0,
+                                          V4L2_PIX_FMT_NV21,1920x1080,0,0,
+                                          V4L2_PIX_FMT_NV16,1920x1080,0,0,
+                                          V4L2_PIX_FMT_UYVY,1920x1080,0,0,
+                                          V4L2_PIX_FMT_YVU420,1920x1080,0,0,
+                                          V4L2_PIX_FMT_YUV420,1920x1080,0,0,
+                                          V4L2_PIX_FMT_YUV422P,1920x1080,0,0,
+                                          V4L2_PIX_FMT_NV12,1920x1080,0,0"/>
 
             <supportedFeatures value="MANUAL_EXPOSURE,
                                       MANUAL_WHITE_BALANCE,
@@ -62,8 +64,6 @@
                                       NOISE_REDUCTION,
                                       PER_FRAME_CONTROL,
                                       SCENE_MODE"/>
-            <supportedAeExposureTimeRange value="AUTO,10,1000000"/> <!--scene_mode,min_exposure_time,max_exposure_time -->
-            <supportedAeGainRange value="NORMAL,0,60"/> <!--scene_mode,min_gain,max_gain -->
             <fpsRange value="15,15,15,30,30,30"/>
             <evRange value="-6,6"/>
             <evStep value="1,3"/>
@@ -177,7 +177,7 @@
         <enableAIQ value="true"/>
         <iSysRawFormat value="V4L2_PIX_FMT_SGRBG10"/>
         <maxRawDataNum value="32"/>
-        <pSysFormat value="V4L2_PIX_FMT_NV12"/>
+        <pSysFormat value="V4L2_PIX_FMT_YUYV,V4L2_PIX_FMT_NV21,V4L2_PIX_FMT_NV16,V4L2_PIX_FMT_UYVY,V4L2_PIX_FMT_YVU420,V4L2_PIX_FMT_YUV420,V4L2_PIX_FMT_YUV422P,V4L2_PIX_FMT_NV12"/>
         <initialSkipFrame value="0"/>
         <exposureLag value="2"/>
         <gainLag value="2"/>
@@ -191,7 +191,6 @@
         <testPatternMap value="Off,0,ColorBars,2"/>
         <enableAiqd value = "true"/>
         <useCrlModule value = "false"/>
-        <pslOutputMapForRotation value="1280x960@1280x960,640x480@640x480,320x240@640x480"/>
 
         <maxRequestsInflight value="5"/>
     </Sensor>
